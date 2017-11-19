@@ -1,3 +1,10 @@
-<h1>
-  Hey!
-</h1>
+<div>
+  <h2>
+    {{courseData.courseName}}
+  </h2>
+  <article>
+    {{courseData.courseDescription}}
+  </article>
+  <button (click)="editCourse()">Edit Course</button>
+  <button (click)="deleteCourse()">Delete Course</button>
+</div>

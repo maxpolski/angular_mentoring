@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
-interface ICourseItem {
+export interface ICourse {
+  courseId: String;
   courseName: String;
   courseType: String;
-  courseDuration: Date;
+  courseEndDate: Date;
   courseStartDate: Date;
   courseDescription: String;
-  editCourse(): void;
-  deleteCourse(): void;
 }
 
 @Component({
@@ -15,15 +14,11 @@ interface ICourseItem {
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.css']
 })
-export class CourseComponent implements ICourseItem {
-  constructor() {}
+export class CourseComponent {
+  @Input() courseData: ICourse;
+  @Input() deleteCourse: () => {};
 
-  readonly courseName;
-  readonly courseType;
-  readonly courseDuration;
-  readonly courseStartDate;
-  readonly courseDescription;
-
-  editCourse() {}
-  deleteCourse() {}
+  editCourse() {
+    console.log('now edit mode', this.courseData.courseId);
+  }
 }
